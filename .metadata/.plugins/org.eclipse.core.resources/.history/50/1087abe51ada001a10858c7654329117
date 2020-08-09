@@ -1,0 +1,9 @@
+package test;
+
+import java.util.List;
+
+public class Student {
+
+	private String nume; // +prenume
+	private List<Curs> cursuri;
+}

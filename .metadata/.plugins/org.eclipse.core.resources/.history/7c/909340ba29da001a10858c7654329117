@@ -1,0 +1,52 @@
+package test;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class MainStream {
+	
+	static int sum = 0;
+
+	public static void main(String... args) {
+		// cursuri
+		Curs curs1 = new Curs("Curs1", "Primul curs");
+		Curs curs2 = new Curs("Curs2", "Al doilea curs");
+		Curs curs3 = new Curs("Curs3", "Al treilea curs");
+		Curs curs4 = new Curs("Curs4", "Al patrulea curs");
+		Curs curs5 = new Curs("Curs5", "Al cincilea curs");
+		
+		// studenti
+		Student student1 = new Student("Ion Ionescu", Arrays.asList(curs1, curs2, curs3));
+		Student student2 = new Student("George Georgescu", Arrays.asList(curs2, curs4, curs5));
+		Student student3 = new Student("Paul Paulescu", Arrays.asList(curs1, curs3, curs5));
+		
+		List<Student> studenti = Arrays.asList(student1, student2, student3);
+		
+		Stream<Student> studentStream = studenti.stream();
+	}
+	
+	
+	// Sum with List.forEach()
+	private static int method1(List<Integer> lista) {
+		lista.forEach(numar -> {
+			sum += numar;
+		});
+		
+		return sum;
+	}
+	
+	// Sum with Stream.sum()
+	private int method2(List<Integer> lista) {
+//		Stream<Integer> stream = lista.stream();
+//		int sum = stream.mapToInt(x -> x).sum();
+//		return sum;
+		
+		return lista.stream().mapToInt(x -> x).sum();
+	}
+	
+	// Sum per Student nrInregistrare
+	private int method3(List<Student> studenti) {
+		return studenti.stream().mapToInt(student -> student.getNrInregistrare()).sum();
+	} //type mismatch: cannot convert from double to int
+}

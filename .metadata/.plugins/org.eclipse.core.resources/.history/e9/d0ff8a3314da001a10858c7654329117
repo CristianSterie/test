@@ -1,0 +1,23 @@
+package test;
+
+public class OverloadExample {
+
+	public static void main(String[] args) {
+
+	}
+	
+	private static void over (Integer number) {
+		System.out.println("Number: " + number);
+	}
+	
+	private static void over (String name) {
+		System.out.println("Name: " + name);
+	}
+	
+	private static Integer over (String name, Integer number) {
+		System.out.println("Name: " + name + "\nNumber: " + number);
+		
+		return 1;
+	}
+
+}

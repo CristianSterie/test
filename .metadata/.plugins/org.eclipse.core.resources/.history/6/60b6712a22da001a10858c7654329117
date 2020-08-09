@@ -1,0 +1,37 @@
+package test;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class MainStudent {
+
+	public static void main(String[] args) {
+		Curs curs1 = new Curs("Curs1", "Primul curs");
+		Curs curs2 = new Curs("Curs2", "Al doilea curs");
+		Curs curs3 = new Curs("Curs3", "Al treilea curs");
+		Curs curs4 = new Curs("Curs4", "Al patrulea curs");
+		Curs curs5 = new Curs("Curs5", "Al cincilea curs");
+		
+		Student student1 = new Student("Ion Ionescu", Arrays.asList(curs1, curs2, curs3));
+		Student student2 = new Student("George Georgescu", Arrays.asList(curs2, curs4, curs5));
+		Student student3 = new Student("Paul Paulescu", Arrays.asList(curs1, curs3, curs5));
+		
+		List<Student> lista_studenti = Arrays.asList(student1, student2, student3);
+		
+		// Exemplu 1
+//		lista_studenti.forEach(student -> {
+//			System.out.println(student.toString());
+//		});
+		
+		// Exemplu 2
+		lista_studenti.forEach(student -> {
+			System.out.println("Studentul " + student.getNume() + " are urmatoarele cursuri: ");
+			student.getCursuri().forEach(curs -> {
+				System.out.println(curs.getNume());
+				System.out.println(curs.getDescriere());
+				System.out.println();
+			});
+		});
+	}
+
+}

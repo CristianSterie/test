@@ -1,0 +1,25 @@
+package test;
+
+import java.util.List;
+
+public class Student {
+
+	private String nume; // +prenume
+	private List<Curs> cursuri;
+
+	public String getNume() {
+		return nume;
+	}
+
+	public void setNume(String nume) {
+		this.nume = nume;
+	}
+
+	public List<Curs> getCursuri() {
+		return cursuri;
+	}
+
+	public void setCursuri(List<Curs> cursuri) {
+		this.cursuri = cursuri;
+	}
+}
